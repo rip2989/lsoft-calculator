@@ -36,13 +36,15 @@ body {
 
 .heading-container {
   max-width: 1523px;
-  height: 360px;
+  height: auto;
+  min-height: 360px;
   margin: 0 auto 80px auto;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 40px 20px;
 }
 
 .heading-section {
@@ -53,21 +55,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  white-space: nowrap;
+  gap: clamp(10px, 1.5vw, 20px);
+  flex-wrap: wrap;
 }
 
 .title-text {
-  font-size: 107.692px;
+  font-size: clamp(36px, 7.5vw, 107.692px);
   font-weight: 400;
-  line-height: 114.777px;
+  line-height: 1.065;
   color: #ffffff;
   font-family: "Product Sans", "Helvetica Neue", Arial, sans-serif;
-  white-space: nowrap;
 }
 
 .logo {
-  height: 136px;
+  height: clamp(48px, 9.5vw, 136px);
   width: auto;
   flex-shrink: 0;
 }
@@ -75,15 +76,17 @@ body {
 .subtitle-section {
   display: flex;
   justify-content: center;
+  padding: 0 20px;
 }
 
 .subtitle {
-  font-size: 56.822px;
-  line-height: 74.525px;
+  font-size: clamp(20px, 3.95vw, 56.822px);
+  line-height: 1.31;
   color: #ffffff;
   font-family: "Product Sans", "Helvetica Neue", Arial, sans-serif;
   text-shadow: 3.535px 3.535px 0 rgba(0, 70, 136, 0.35);
-  white-space: nowrap;
+  text-align: center;
+  max-width: 100%;
 }
 
 /* ===== CONTAINERS ===== */
@@ -1201,5 +1204,53 @@ body {
 
   .cta-description {
     margin-bottom: 30px;
+  }
+}
+
+/* ===== HEADING RESPONSIVE BREAKPOINTS ===== */
+
+/* Breakpoint 1: Large Desktop (default/full size handled by clamp) */
+/* No additional rules needed - clamp handles this */
+
+/* Breakpoint 2: Medium/Tablet (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  .heading-container {
+    min-height: 280px;
+    margin-bottom: 60px;
+    padding: 30px 20px;
+  }
+
+  .heading-section {
+    margin-bottom: 30px;
+  }
+
+  .title-line {
+    gap: clamp(8px, 1.2vw, 15px);
+  }
+
+  .subtitle {
+    text-shadow: 2.5px 2.5px 0 rgba(0, 70, 136, 0.35);
+  }
+}
+
+/* Breakpoint 3: Mobile (max 767px) */
+@media screen and (max-width: 767px) {
+  .heading-container {
+    min-height: 200px;
+    margin-bottom: 40px;
+    padding: 20px 15px;
+  }
+
+  .heading-section {
+    margin-bottom: 20px;
+  }
+
+  .title-line {
+    gap: clamp(6px, 1vw, 12px);
+  }
+
+  .subtitle {
+    text-shadow: 2px 2px 0 rgba(0, 70, 136, 0.35);
+    padding: 0 10px;
   }
 }
