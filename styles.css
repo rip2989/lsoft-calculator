@@ -1,0 +1,1205 @@
+/* ===== GLOBAL SCALE SYSTEM (OPTION A) ===== */
+
+:root {
+  /* Controls entire page scale */
+  --page-scale: clamp(0.75, 100vw / 1440, 1);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-image: url("BG.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #ffffff;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+/* SCALE WRAPPER */
+.page-scale {
+  zoom: var(--page-scale);
+  transform-origin: top center;
+}
+
+/* ===== HEADING SECTION ===== */
+
+.heading-container {
+  max-width: 1523px;
+  height: 360px;
+  margin: 0 auto 80px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading-section {
+  margin-bottom: 40px;
+}
+
+.title-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  white-space: nowrap;
+}
+
+.title-text {
+  font-size: 107.692px;
+  font-weight: 400;
+  line-height: 114.777px;
+  color: #ffffff;
+  font-family: "Product Sans", "Helvetica Neue", Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.logo {
+  height: 136px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.subtitle-section {
+  display: flex;
+  justify-content: center;
+}
+
+.subtitle {
+  font-size: 56.822px;
+  line-height: 74.525px;
+  color: #ffffff;
+  font-family: "Product Sans", "Helvetica Neue", Arial, sans-serif;
+  text-shadow: 3.535px 3.535px 0 rgba(0, 70, 136, 0.35);
+  white-space: nowrap;
+}
+
+/* ===== CONTAINERS ===== */
+
+.container {
+  margin: 0 auto;
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -50px;
+  right: -50px;
+  bottom: -20px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 32px;
+  z-index: -10;
+}
+
+/* Section widths */
+.container:not(.section-2):not(.section-3),
+.section-2,
+.section-3 {
+  max-width: 816px;
+}
+
+.section-2 {
+  margin-top: 160px;
+}
+
+.section-3 {
+  margin-top: 60px;
+}
+
+/* ===== TITLES ===== */
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: #09256d;
+  margin-bottom: 62px;
+  font-family: "Inter", sans-serif;
+}
+
+/* ===== SECTION 1 CARD ===== */
+
+.section-1-card {
+  position: relative;
+  border-radius: 24px;
+  padding: 26px 42px 48px;
+}
+
+.section-1-card::before,
+.section-1-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.43);
+  border-radius: 24px;
+  z-index: -2;
+}
+
+.section-1-card::after {
+  top: 76px;
+  border-radius: 0 0 24px 24px;
+  z-index: -1;
+}
+
+.card-header {
+  margin-bottom: 30px;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 400;
+  color: #09256d;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-icon {
+  font-size: 19px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== FORM ===== */
+
+.form-group {
+  margin-bottom: 29px;
+}
+
+.form-row {
+  display: flex;
+  gap: 24px;
+}
+
+.form-group-half {
+  flex: 1;
+}
+
+.label {
+  font-size: 21px;
+  font-weight: 600;
+  color: #09256d;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.label-multiline {
+  line-height: 1.35;
+}
+
+.select-input {
+  width: 100%;
+  height: 48px;
+  padding: 14px 50px 14px 20px;
+  font-size: 16px;
+  color: #09256d;
+  background: transparent;
+  border: 1px solid #bebebe;
+  border-radius: 6px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='12' viewBox='0 0 20 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2L10 10L18 2' stroke='%2309256d' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+}
+
+.select-input:hover {
+  border-color: #09256d;
+}
+
+.select-input:focus {
+  outline: none;
+  border-color: #05a3fd;
+}
+
+/* ===== SECTION 2: AI comands 2 - REFINE YOUR PROJECTION ===== */
+
+.calculator-card {
+  position: relative;
+  max-width: 816px;
+  margin: 0 auto 24px auto;
+  border-radius: 24px;
+  padding: 18px 36px 0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+.calculator-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.43);
+  border-radius: 24px;
+  z-index: -1;
+}
+
+.calculator-card::after {
+  content: "";
+  position: absolute;
+  top: 76px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.43);
+  border-radius: 0;
+  z-index: -2;
+}
+
+.drives-card,
+.cost-card {
+  padding-bottom: 0;
+}
+
+.section-label {
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  opacity: 1;
+  color: #09256d;
+  font-family: "Inter", sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+.visual-indicator-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 0 0 24px 24px;
+  padding: 34px 36px 34px;
+  margin: 0 -36px 0 -36px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: all 0.2s ease;
+  gap: 30px;
+  z-index: 1;
+}
+
+.visual-indicator-container:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.visual-indicator-container:active {
+  transform: scale(0.995);
+}
+
+.icon-bar-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.icon-bar {
+  display: flex;
+  gap: 5px;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex: 1;
+}
+
+.drive-icon {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("drive-icon.png");
+  opacity: 0.35;
+  transition: all 0.2s ease;
+  filter: grayscale(100%) brightness(0.5);
+}
+
+.drive-icon.active {
+  opacity: 1;
+  filter: grayscale(0%) brightness(1);
+}
+
+.money-icon {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("money-icon.png");
+  opacity: 0.35;
+  transition: all 0.2s ease;
+  filter: grayscale(100%) brightness(0.5);
+}
+
+.money-icon.active {
+  opacity: 1;
+  filter: grayscale(0%) brightness(1);
+}
+
+.display-number {
+  font-size: 44px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  white-space: nowrap;
+  line-height: 1;
+  text-align: right;
+  flex-shrink: 0;
+  color: #09256d;
+  font-family: "Inter", sans-serif;
+}
+
+/* ===== SECTION 3: AI comands 3 - SAVINGS BREAKDOWN ===== */
+
+.section-3 .card {
+  width: 100%;
+  max-width: 816px;
+  background: transparent;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.section-3 .title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #09256d;
+  letter-spacing: -0.7px;
+  margin-bottom: 62px;
+  margin-top: 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.cost-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 110px;
+  padding: 0 50px;
+  border-radius: 12px;
+  margin-bottom: 2px;
+}
+
+.outsourcing {
+  background-color: #db5e27;
+}
+
+.lsoft,
+.breakeven {
+  background-color: #18ca9a;
+  border-radius: 12px;
+  height: 108px;
+}
+
+.breakeven {
+  margin-bottom: 17px;
+}
+
+.cost-bar .label {
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.6px;
+}
+
+.outsourcing .label {
+  color: #ffbb27;
+}
+
+.lsoft .label,
+.breakeven .label {
+  color: #09256d;
+}
+
+.cost-bar .value {
+  font-size: 50px;
+  font-weight: 400;
+  letter-spacing: -1.25px;
+}
+
+.outsourcing .value {
+  color: #ffbb27;
+}
+
+.lsoft .value,
+.breakeven .value {
+  color: #09256d;
+}
+
+.savings-section {
+  background-color: rgba(255, 255, 255, 0.43);
+  border-radius: 12px;
+  padding: 0;
+  position: relative;
+}
+
+.savings-header {
+  font-size: 24px;
+  font-weight: 400;
+  color: #09256d;
+  text-transform: uppercase;
+  letter-spacing: -0.6px;
+  padding: 20px 32px;
+  margin: 0;
+}
+
+.savings-chart {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0 0 24px 24px;
+  padding: 32px 32px 0;
+  min-height: 388px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.year-labels-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.year-label {
+  flex: 1;
+  font-size: 20px;
+  font-weight: 500;
+  color: #09256d;
+  text-transform: uppercase;
+  letter-spacing: -0.6px;
+  text-align: center;
+}
+
+.chart-bars-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex: 1;
+}
+
+.chart-bar {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.chart-bar-fill {
+  width: 100%;
+  background-color: #88a8ec;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 8px;
+  box-sizing: border-box;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.year1 {
+  height: 71px;
+}
+
+.year2 {
+  height: 183px;
+}
+
+.year3 {
+  height: 300px;
+}
+
+.amount {
+  font-size: 30px;
+  font-weight: 800;
+  color: #fafafa;
+  letter-spacing: -1.25px;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 768px) {
+  /* Section 1 */
+  .title {
+    font-size: 24px;
+    margin-bottom: 50px;
+  }
+
+  .section-1-card {
+    padding: 36px 28px;
+    border-radius: 20px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .card-header {
+    margin-bottom: 38px;
+  }
+
+  .label {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+
+  .label-multiline {
+    font-size: 18px;
+  }
+
+  .select-input {
+    font-size: 14px;
+    padding: 14px 16px;
+    padding-right: 45px;
+    height: 44px;
+  }
+
+  .form-group {
+    margin-bottom: 42px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 42px;
+    margin-bottom: 42px;
+  }
+
+  .form-group-half {
+    width: 100%;
+  }
+
+  /* Section 2 */
+  .calculator-card {
+    padding: 24px 28px 0;
+    margin-bottom: 16px;
+    border-radius: 20px;
+  }
+
+  .calculator-card::before {
+    border-radius: 20px;
+  }
+
+  .calculator-card::after {
+    border-radius: 0 0 20px 20px;
+  }
+
+  .visual-indicator-container {
+    padding: 16px 28px;
+    margin: 0 -28px 0 -28px;
+    gap: 16px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .display-number {
+    font-size: 60px;
+    letter-spacing: -2px;
+  }
+
+  .drive-icon,
+  .money-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .icon-bar {
+    gap: px;
+  }
+
+  /* Section 3 */
+  .section-3 .card {
+    padding: 32px 28px;
+  }
+
+  .section-3 .title {
+    font-size: 24px;
+    margin-bottom: 60px;
+  }
+
+  .cost-bar {
+    height: 90px;
+    padding: 0 32px;
+    border-radius: 20px;
+  }
+
+  .lsoft,
+  .breakeven {
+    height: 88px;
+    border-radius: 20px;
+  }
+
+  .cost-bar .label {
+    font-size: 20px;
+  }
+
+  .cost-bar .value {
+    font-size: 40px;
+  }
+
+  .savings-header {
+    font-size: 20px;
+    padding: 16px 24px;
+  }
+
+  .savings-chart {
+    padding: 24px 24px 0;
+    min-height: 320px;
+  }
+
+  .year-label {
+    font-size: 20px;
+  }
+
+  .year1 {
+    height: 110px;
+  }
+
+  .year2 {
+    height: 170px;
+  }
+
+  .year3 {
+    height: 200px;
+  }
+
+  .amount {
+    font-size: clamp(20px, 5vw, 36px);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  /* Section 1 */
+  .title {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  .section-1-card {
+    padding: 28px 20px;
+    border-radius: 18px;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .card-header {
+    margin-bottom: 32px;
+  }
+
+  .label {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .label-multiline {
+    font-size: 16px;
+  }
+
+  .select-input {
+    font-size: 14px;
+    padding: 12px 16px;
+    padding-right: 40px;
+    height: 40px;
+    background-size: 12px;
+    background-position: right 16px center;
+  }
+
+  .form-group {
+    margin-bottom: 36px;
+  }
+
+  .form-row {
+    gap: 36px;
+    margin-bottom: 36px;
+  }
+
+  /* Section 2 */
+  .calculator-card {
+    padding: 20px 24px 0;
+    border-radius: 18px;
+  }
+
+  .calculator-card::before {
+    border-radius: 18px;
+  }
+
+  .calculator-card::after {
+    border-radius: 0 0 18px 18px;
+  }
+
+  .visual-indicator-container {
+    flex-wrap: wrap;
+    padding: 14px 24px;
+    margin: 0 -24px 0 -24px;
+    gap: 12px;
+    border-radius: 0 0 18px 18px;
+  }
+
+  .icon-bar-wrapper {
+    width: 100%;
+  }
+
+  .display-number {
+    font-size: 48px;
+    letter-spacing: -1.5px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .drive-icon,
+  .money-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .icon-bar {
+    gap: 5px;
+  }
+
+  /* Section 3 */
+  .section-3 .card {
+    padding: 24px 20px;
+  }
+
+  .section-3 .title {
+    font-size: 20px;
+    margin-bottom: 48px;
+    letter-spacing: -0.5px;
+  }
+
+  .cost-bar {
+    height: 80px;
+    padding: 0 24px;
+    border-radius: 18px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .lsoft,
+  .breakeven {
+    height: 78px;
+    border-radius: 18px;
+  }
+
+  .cost-bar .label {
+    font-size: 16px;
+    letter-spacing: -0.4px;
+  }
+
+  .cost-bar .value {
+    font-size: 32px;
+    letter-spacing: -0.8px;
+  }
+
+  .savings-section {
+    border-radius: 18px;
+  }
+
+  .savings-header {
+    font-size: 16px;
+    padding: 12px 20px;
+    letter-spacing: -0.4px;
+  }
+
+  .savings-chart {
+    border-radius: 0 0 18px 18px;
+    padding: 20px 20px 0;
+    min-height: 280px;
+    gap: 16px;
+  }
+
+  .year-labels-row {
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .year-label {
+    font-size: 16px;
+    letter-spacing: -0.4px;
+  }
+
+  .chart-bars-row {
+    gap: 16px;
+  }
+
+  .chart-bar-fill {
+    border-radius: 16px;
+    padding: 20px 12px;
+  }
+
+  .year1 {
+    height: 90px;
+  }
+
+  .year2 {
+    height: 140px;
+  }
+
+  .year3 {
+    height: 170px;
+  }
+
+  .amount {
+    font-size: clamp(16px, 4.5vw, 28px);
+  }
+}
+
+/* ========================================================= */
+/* ===== RESPONSIVE TUNING (SECTIONS 1–3) ================== */
+/* ========================================================= */
+
+/* ---------- TABLET & SMALL LAPTOP ---------- */
+@media (max-width: 900px) {
+  /* ===== SECTION 1 ===== */
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-row {
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .label {
+    margin-bottom: 6px;
+  }
+
+  /* ===== SECTION 2 ===== */
+  .visual-indicator-container {
+    padding: 20px 24px;
+    gap: 16px;
+  }
+
+  .drive-icon,
+  .money-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon-bar {
+    gap: 6px;
+  }
+
+  .display-number {
+    font-size: 36px;
+    min-width: 110px;
+    text-align: right;
+  }
+
+  /* ===== SECTION 3 ===== */
+  .cost-bar {
+    height: 96px;
+    padding: 0 32px;
+  }
+
+  .cost-bar .label {
+    font-size: 20px;
+  }
+
+  .cost-bar .value {
+    font-size: 42px;
+  }
+
+  .year-label {
+    font-size: 20px;
+  }
+
+  .amount {
+    font-size: 40px;
+  }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 600px) {
+  /* ===== SECTION 1 ===== */
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-row {
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .label {
+    font-size: 16px;
+  }
+
+  .label-multiline {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .select-input {
+    height: 40px;
+    font-size: 14px;
+  }
+  .select-input {
+    height: 42px; /* slightly taller */
+    line-height: 1.2; /* prevents vertical clipping */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center; /* ensures vertical centering */
+  }
+
+  .select-input option {
+    line-height: 1.2;
+  }
+
+  /* ===== SECTION 2 ===== */
+  .visual-indicator-container {
+    padding: 14px 18px;
+    gap: 12px;
+  }
+
+  .icon-bar-wrapper {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .icon-bar {
+    gap: 2px;
+  }
+
+  .drive-icon,
+  .money-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .display-number {
+    font-size: 28px;
+    min-width: 90px;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* ===== SECTION 3 ===== */
+  .cost-bar {
+    height: auto;
+    padding: 16px 20px;
+    gap: 6px;
+  }
+
+  .cost-bar .label {
+    font-size: 16px;
+    letter-spacing: -0.3px;
+  }
+
+  .cost-bar .value {
+    font-size: 28px;
+    letter-spacing: -0.6px;
+  }
+
+  .savings-header {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  .year-label {
+    font-size: 16px;
+  }
+
+  .amount {
+    font-size: 28px;
+  }
+}
+
+/* ---------- VERY SMALL DEVICES ---------- */
+@media (max-width: 420px) {
+  /* SECTION 2 — ensure numbers NEVER clip */
+  .visual-indicator-container {
+    flex-wrap: nowrap;
+  }
+
+  .display-number {
+    font-size: 24px;
+    min-width: 80px;
+  }
+
+  /* SECTION 3 — tighter but readable */
+  .cost-bar .label {
+    font-size: 14px;
+  }
+
+  .cost-bar .value {
+    font-size: 24px;
+  }
+
+  .amount {
+    font-size: 24px;
+  }
+}
+
+/* ===== SECTION 4: CTA CARD (AI comands 5 CTA) ===== */
+
+.cta-section {
+  margin: 280px auto 0;
+  max-width: 1523px;
+  padding: 0 20px 280px;
+}
+
+.cta-card-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* CTA Title */
+.cta-title {
+  font-family: "Product Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: clamp(28px, 4.4vw, 67px);
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.21;
+  text-align: center;
+  letter-spacing: 0;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* CTA Description */
+.cta-description {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: clamp(16px, 2.4vw, 36px);
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.56;
+  text-align: center;
+  letter-spacing: 0;
+  margin: 0 auto 50px;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* CTA Button Container */
+.cta-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* CTA Contact Button */
+.cta-button {
+  /* Button shape: responsive sizing - half size */
+  width: min(308.5px, 90vw);
+  height: auto;
+  aspect-ratio: 617 / 153.1;
+  min-height: 35px;
+  max-height: 76.55px;
+  border-radius: 41px;
+  border: none;
+  cursor: pointer;
+
+  /* Solid background */
+  background: #008fff;
+
+  /* Text styling - half size */
+  font-family: "Product Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: calc(min(308.5px, 90vw) * 0.1086);
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: 0;
+
+  /* Button effects */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 143, 255, 0.3);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(0, 143, 255, 0.5);
+  background: #00a0ff;
+}
+
+.cta-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 15px rgba(0, 143, 255, 0.4);
+}
+
+/* CTA Responsive Design */
+@media screen and (max-width: 768px) {
+  .cta-section {
+    margin-top: 210px;
+    padding-bottom: 210px;
+  }
+
+  .cta-card-wrapper {
+    padding: 30px 15px;
+  }
+
+  .cta-title {
+    margin-bottom: 25px;
+  }
+
+  .cta-description {
+    margin-bottom: 35px;
+  }
+
+  .cta-button {
+    border-radius: calc(min(308.5px, 90vw) * 0.1329);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cta-section {
+    margin-top: 140px;
+    padding-bottom: 140px;
+  }
+
+  .cta-card-wrapper {
+    padding: 20px 10px;
+  }
+
+  .cta-title {
+    margin-bottom: 20px;
+  }
+
+  .cta-description {
+    margin-bottom: 30px;
+  }
+}

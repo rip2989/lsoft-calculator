@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KillDisk ROI Calculator - Complete</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="page-scale">
+        <!-- ===== HEADING ===== -->
+        <div class="heading-container">
+          <div class="heading-section">
+            <div class="title-line">
+              <span class="title-text">Your ROI with</span>
+              <img
+                src="logo-gigapixel-text-shapes-4x.png"
+                alt="KillDisk Logo"
+                class="logo"
+              />
+              <span class="title-text killdisk">KillDisk</span>
+            </div>
+          </div>
+
+          <div class="subtitle-section">
+            <p class="subtitle">
+              See the value LSoft can bring to your<br />organization with our
+              ROI calculator
+            </p>
+          </div>
+        </div>
+
+        <!-- ===== SECTION 1: CALCULATE YOUR PROJECTION (AI comands 1) ===== -->
+        <div class="container">
+          <h1 class="title">CALCULATE YOUR PROJECTION</h1>
+
+          <div class="section-1-card">
+            <div class="card-header">
+              <h2 class="card-title">
+                Company details <span class="info-icon">ⓘ</span>
+              </h2>
+            </div>
+
+            <div class="form-group">
+              <label class="label">Country of operation</label>
+              <select class="select-input">
+                <option value="" disabled selected>Please select</option>
+                <option>Other</option>
+                <option>United States</option>
+                <option>United Kingdom</option>
+                <option>Canada</option>
+                <option>Australia</option>
+                <option>Germany</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="label">Industry</label>
+              <select class="select-input">
+                <option value="" disabled selected>Please select</option>
+                <option>Technology</option>
+                <option>Healthcare</option>
+                <option>Finance</option>
+                <option>Education</option>
+                <option>Manufacturing</option>
+                <option>Retail</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group form-group-half">
+                <label class="label">Annual revenue ($USD)</label>
+                <select class="select-input">
+                  <option value="" disabled selected>Please select</option>
+                  <option>$0 - $1M</option>
+                  <option>$1M - $10M</option>
+                  <option>$10M - $50M</option>
+                  <option>$50M - $100M</option>
+                  <option>$100M+</option>
+                </select>
+              </div>
+
+              <div class="form-group form-group-half">
+                <label class="label">Number of employees</label>
+                <select class="select-input">
+                  <option value="" disabled selected>Please select</option>
+                  <option>1-10</option>
+                  <option>11-50</option>
+                  <option>51-200</option>
+                  <option>201-500</option>
+                  <option>501-1000</option>
+                  <option>1000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="label label-multiline"
+                >How often does your organization perform data sanitization<br />as
+                part of your information security and compliance
+                protocols?</label
+              >
+              <select class="select-input">
+                <option value="" disabled selected>Please select</option>
+                <option>Unsure</option>
+                <option>Rarely</option>
+                <option>Sometimes</option>
+                <option>Often</option>
+                <option>Very often</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== SECTION 2: REFINE YOUR PROJECTION (AI comands 2) ===== -->
+        <div class="container section-2">
+          <h1 class="title">refine your projection</h1>
+
+          <!-- Number of Drives Card -->
+          <div class="calculator-card drives-card">
+            <div class="section-label">NUMBER OF DRIVES</div>
+            <div class="visual-indicator-container" id="drivesBarWrapper">
+              <div class="icon-bar-wrapper">
+                <div class="icon-bar" id="drivesIconBar"></div>
+              </div>
+              <div class="display-number" id="drivesDisplay">750</div>
+            </div>
+          </div>
+
+          <!-- Cost Per Drive Card -->
+          <div class="calculator-card cost-card">
+            <div class="section-label">COST PER DRIVE</div>
+            <div class="visual-indicator-container" id="costBarWrapper">
+              <div class="icon-bar-wrapper">
+                <div class="icon-bar" id="costIconBar"></div>
+              </div>
+              <div class="display-number">
+                $<span id="costDisplay">20</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== SECTION 3: SAVINGS BREAKDOWN (AI comands 3) ===== -->
+        <div class="container section-3">
+          <div class="card">
+            <h1 class="title">SAVINGS BREAKDOWN</h1>
+
+            <div class="cost-bar outsourcing">
+              <span class="label">OUTSOURCING COST</span>
+              <span class="value"
+                >$<span id="outsourcingCost">15000</span></span
+              >
+            </div>
+
+            <div class="cost-bar lsoft">
+              <span class="label">LSOFT COST (1 TIME)</span>
+              <span class="value">$<span id="lsoftCost">4995</span></span>
+            </div>
+
+            <div class="cost-bar breakeven">
+              <span class="label">BREAK EVEN</span>
+              <span class="value"><span id="breakEven">4.2</span> MONTH</span>
+            </div>
+
+            <div class="savings-section">
+              <div class="savings-header">ESTIMATED SAVINGS WITH LSOFT</div>
+
+              <div class="savings-chart">
+                <div class="year-labels-row">
+                  <div class="year-label">YEAR 1</div>
+                  <div class="year-label">YEAR 2</div>
+                  <div class="year-label">YEAR 3</div>
+                </div>
+
+                <div class="chart-bars-row">
+                  <div class="chart-bar">
+                    <div class="chart-bar-fill year1" data-year="1">
+                      <span class="amount"
+                        >$<span id="year1Savings">10,005</span></span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="chart-bar">
+                    <div class="chart-bar-fill year2" data-year="2">
+                      <span class="amount"
+                        >$<span id="year2Savings">25,755</span></span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="chart-bar">
+                    <div class="chart-bar-fill year3" data-year="3">
+                      <span class="amount"
+                        >$<span id="year3Savings">42,143</span></span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== SECTION 4: CTA CARD (AI comands 5 CTA) ===== -->
+        <div class="cta-section">
+          <div class="cta-card-wrapper">
+            <h1 class="cta-title">Talk to Our Data Sanitization Experts</h1>
+
+            <p class="cta-description">Connect with our team to eliminate recurring costs, reduce expenses by up to 82%, and achieve payback within months.</p>
+
+            <div class="cta-button-container">
+              <button class="cta-button">Contact us</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End page-scale wrapper -->
+
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>
