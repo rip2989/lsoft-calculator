@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>KillDisk ROI Calculator - Complete</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=8" />
   </head>
   <body>
     <div class="page">
@@ -35,8 +35,8 @@
 
           <div class="subtitle-section">
             <p class="subtitle">
-              See the value LSoft can bring to your<br />organization with our
-              ROI calculator
+              <span class="subtitle-line">See the value LSoft can bring to your</span>
+              <span class="subtitle-line">organization with our ROI calculator</span>
             </p>
           </div>
         </div>
@@ -46,13 +46,14 @@
           <h1 class="title">CALCULATE YOUR PROJECTION</h1>
 
           <div class="section-1-card">
-            <div class="card-header">
-              <h2 class="card-title">
-                Company details <span class="info-icon">ⓘ</span>
-              </h2>
-            </div>
+            <div class="card-shell">
+              <div class="card-header">
+                <h2 class="card-title">
+                  Company details <span class="info-icon">ⓘ</span>
+                </h2>
+              </div>
 
-            <div class="form-group">
+              <div class="form-group">
               <label class="label">Country of operation</label>
               <select class="select-input">
                 <option value="" disabled selected>Please select</option>
@@ -120,6 +121,7 @@
                 <option>Often</option>
                 <option>Very often</option>
               </select>
+              </div>
             </div>
           </div>
         </div>
@@ -130,24 +132,28 @@
 
           <!-- Number of Drives Card -->
           <div class="calculator-card drives-card">
-            <div class="section-label">NUMBER OF DRIVES</div>
-            <div class="visual-indicator-container" id="drivesBarWrapper">
+            <div class="card-shell">
+              <div class="section-label">NUMBER OF DRIVES</div>
+              <div class="visual-indicator-container" id="drivesBarWrapper">
               <div class="icon-bar-wrapper">
                 <div class="icon-bar" id="drivesIconBar"></div>
               </div>
               <div class="display-number" id="drivesDisplay">750</div>
+              </div>
             </div>
           </div>
 
           <!-- Cost Per Drive Card -->
           <div class="calculator-card cost-card">
-            <div class="section-label">COST PER DRIVE</div>
+            <div class="card-shell">
+              <div class="section-label">COST PER DRIVE</div>
             <div class="visual-indicator-container" id="costBarWrapper">
               <div class="icon-bar-wrapper">
                 <div class="icon-bar" id="costIconBar"></div>
               </div>
               <div class="display-number">
                 $<span id="costDisplay">20</span>
+              </div>
               </div>
             </div>
           </div>
@@ -156,9 +162,10 @@
         <!-- ===== SECTION 3: SAVINGS BREAKDOWN (AI comands 3) ===== -->
         <div class="container section-3">
           <div class="card">
-            <h1 class="title">SAVINGS BREAKDOWN</h1>
+            <div class="card-shell">
+              <h1 class="title">SAVINGS BREAKDOWN</h1>
 
-            <div class="cost-bar outsourcing">
+              <div class="cost-bar outsourcing">
               <span class="label">OUTSOURCING COST</span>
               <span class="value"
                 >$<span id="outsourcingCost">15000</span></span
@@ -211,6 +218,7 @@
                   </div>
                 </div>
               </div>
+              </div>
             </div>
           </div>
         </div>
@@ -230,7 +238,7 @@
       </div>
       <!-- End page-scale wrapper -->
 
-      <script src="script.js"></script>
+      <script src="script.js?v=3"></script>
     </div>
   </body>
 </html>
