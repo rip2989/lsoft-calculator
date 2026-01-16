@@ -17,8 +17,6 @@ const year3Bar = document.querySelector('[data-year="3"]');
 
 // Constants for calculations
 const LSOFT_BASE_COST = 4995;
-const MAX_DRIVE_ICONS = 10;
-const MAX_COST_ICONS = 10;
 const MIN_DRIVES = 50;
 const MAX_DRIVES = 2000;
 const MIN_COST = 5;
@@ -33,25 +31,78 @@ function formatNumber(num) {
     return Math.round(num).toLocaleString('en-US');
 }
 
-// Function to create icon arrays
-function createIconArray(container, count, maxIcons, type) {
-    container.innerHTML = '';
-    const totalIcons = maxIcons;
-    const activeIcons = Math.min(Math.ceil((count / (type === 'drive' ? MAX_DRIVES : MAX_COST)) * maxIcons), maxIcons);
-
-    for (let i = 0; i < totalIcons; i++) {
-        const icon = document.createElement('div');
-        icon.className = type === 'drive' ? 'drive-icon' : 'money-icon';
-        if (i < activeIcons) {
-            icon.classList.add('active');
+// Function to format numbers with K for thousands (for Section 3)
+function formatNumberWithK(num) {
+    const rounded = Math.round(num);
+    if (rounded >= 1000) {
+        // Convert to K format
+        const thousands = rounded / 1000;
+        // If it's a whole number of thousands, don't show decimal
+        if (thousands % 1 === 0) {
+            return thousands + 'K';
         }
-        container.appendChild(icon);
+        // Otherwise show one decimal place
+        return thousands.toFixed(1) + 'K';
     }
+    return rounded.toLocaleString('en-US');
+}
+
+// Helper function to calculate how many icons fit in the container
+function getIconCapacity(container) {
+    const ICON_WIDTH = 54; // Base icon width from CSS
+    const GAP = 5; // Base gap from CSS
+
+    const availableWidth = container.clientWidth;
+    return Math.max(1, Math.floor(availableWidth / (ICON_WIDTH + GAP)));
+}
+
+// Function to create icon arrays with smooth animations
+function createIconArray(container, count, type) {
+    const maxValue = type === 'drive' ? MAX_DRIVES : MAX_COST;
+    const maxIcons = getIconCapacity(container);
+
+    const activeIcons = Math.min(
+        Math.ceil((count / maxValue) * maxIcons),
+        maxIcons
+    );
+
+    const existingIcons = container.children.length;
+
+    // ADD ICONS
+    if (existingIcons < maxIcons) {
+        for (let i = existingIcons; i < maxIcons; i++) {
+            const icon = document.createElement('div');
+            icon.className = type === 'drive' ? 'drive-icon icon-enter' : 'money-icon icon-enter';
+
+            container.appendChild(icon);
+
+            requestAnimationFrame(() => {
+                icon.classList.remove('icon-enter');
+            });
+        }
+    }
+
+    // REMOVE ICONS
+    if (existingIcons > maxIcons) {
+        for (let i = existingIcons - 1; i >= maxIcons; i--) {
+            const icon = container.children[i];
+            icon.classList.add('icon-exit');
+
+            setTimeout(() => {
+                icon.remove();
+            }, 250);
+        }
+    }
+
+    // UPDATE ACTIVE STATE
+    [...container.children].forEach((icon, index) => {
+        icon.classList.toggle('active', index < activeIcons);
+    });
 }
 
 // Function to animate number changes
-function animateNumber(element, targetValue, duration = 800) {
-    const startValue = parseFloat(element.textContent.replace(/,/g, '')) || 0;
+function animateNumber(element, targetValue, duration = 800, useKFormat = false) {
+    const startValue = parseFloat(element.textContent.replace(/,/g, '').replace('K', '000')) || 0;
     const difference = targetValue - startValue;
     const startTime = performance.now();
 
@@ -63,12 +114,12 @@ function animateNumber(element, targetValue, duration = 800) {
         const easeProgress = 1 - Math.pow(1 - progress, 3);
         const currentValue = startValue + (difference * easeProgress);
 
-        element.textContent = formatNumber(currentValue);
+        element.textContent = useKFormat ? formatNumberWithK(currentValue) : formatNumber(currentValue);
 
         if (progress < 1) {
             requestAnimationFrame(update);
         } else {
-            element.textContent = formatNumber(targetValue);
+            element.textContent = useKFormat ? formatNumberWithK(targetValue) : formatNumber(targetValue);
         }
     }
 
@@ -99,9 +150,9 @@ function calculateAndUpdate() {
     drivesDisplay.textContent = formatNumber(currentDrives);
     costDisplay.textContent = formatNumber(currentCost);
 
-    // Update icon arrays
-    createIconArray(drivesIconBar, currentDrives, MAX_DRIVE_ICONS, 'drive');
-    createIconArray(costIconBar, currentCost, MAX_COST_ICONS, 'money');
+    // Update icon arrays (auto-calculates based on container width)
+    createIconArray(drivesIconBar, currentDrives, 'drive');
+    createIconArray(costIconBar, currentCost, 'money');
 
     // Calculate outsourcing cost (annual cost based on drives and cost per drive)
     const annualOutsourcingCost = currentDrives * currentCost;
@@ -118,18 +169,18 @@ function calculateAndUpdate() {
     const year2SaveValue = Math.max(0, (annualOutsourcingCost * 2) - lsoftCostValue);
     const year3SaveValue = Math.max(0, (annualOutsourcingCost * 3) - lsoftCostValue);
 
-    // Animate all the calculated values
-    animateNumber(outsourcingCost, annualOutsourcingCost);
-    animateNumber(lsoftCost, lsoftCostValue);
+    // Animate all the calculated values (use K format for Section 3)
+    animateNumber(outsourcingCost, annualOutsourcingCost, 800, true);
+    animateNumber(lsoftCost, lsoftCostValue, 800, true);
 
     // Format break-even with one decimal place
     const breakEvenFormatted = breakEvenMonths.toFixed(1);
     breakEven.textContent = breakEvenFormatted;
 
-    // Animate savings projections
-    animateNumber(year1Savings, year1SaveValue);
-    animateNumber(year2Savings, year2SaveValue);
-    animateNumber(year3Savings, year3SaveValue);
+    // Animate savings projections (use K format)
+    animateNumber(year1Savings, year1SaveValue, 800, true);
+    animateNumber(year2Savings, year2SaveValue, 800, true);
+    animateNumber(year3Savings, year3SaveValue, 800, true);
 
     // Update bar chart
     updateBarChart(year1SaveValue, year2SaveValue, year3SaveValue);
@@ -204,4 +255,13 @@ setupDraggable(costContainer, 'cost');
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     calculateAndUpdate();
+});
+
+// Update icon count on window resize
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        calculateAndUpdate();
+    }, 100);
 });
