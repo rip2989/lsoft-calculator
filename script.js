@@ -16,10 +16,11 @@ const year2Bar = document.querySelector('[data-year="2"]');
 const year3Bar = document.querySelector('[data-year="3"]');
 
 // Constants for calculations
-const LSOFT_BASE_COST = 4995;
+const MIN_LSOFT_COST = 600;
+const MAX_LSOFT_COST = 9990;
 const MIN_DRIVES = 50;
 const MAX_DRIVES = 2000;
-const MIN_COST = 5;
+const MIN_COST = 15;
 const MAX_COST = 75;
 
 // Current values
@@ -173,8 +174,9 @@ function calculateAndUpdate() {
   // Calculate outsourcing cost (annual cost based on drives and cost per drive)
   const annualOutsourcingCost = currentDrives * currentCost;
 
-  // LSoft cost remains constant
-  const lsoftCostValue = LSOFT_BASE_COST;
+  // Calculate LSoft cost dynamically based on number of drives (linear scale)
+  const drivePercentage = (currentDrives - MIN_DRIVES) / (MAX_DRIVES - MIN_DRIVES);
+  const lsoftCostValue = MIN_LSOFT_COST + drivePercentage * (MAX_LSOFT_COST - MIN_LSOFT_COST);
 
   // Calculate break-even in months
   const monthlyOutsourcingCost = annualOutsourcingCost / 12;
@@ -297,3 +299,19 @@ window.addEventListener("resize", () => {
     calculateAndUpdate();
   }, 100);
 });
+
+// Methodology button functionality
+const methodologyButton = document.querySelector(".methodology-button");
+if (methodologyButton) {
+  methodologyButton.addEventListener("click", () => {
+    window.open("Methodology.pdf", "_blank");
+  });
+}
+
+// Contact us button functionality
+const ctaButton = document.querySelector(".cta-button");
+if (ctaButton) {
+  ctaButton.addEventListener("click", () => {
+    window.open("https://www.lsoft.net/contact/", "_blank");
+  });
+}
